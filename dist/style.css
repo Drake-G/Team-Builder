@@ -15,3 +15,8 @@ h1 {
 .card {
     margin: 20px;
 }
+
+.team-cards {
+    display:flex;
+    justify-content: center;
+}
