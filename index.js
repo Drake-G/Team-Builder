@@ -24,6 +24,12 @@ inquirer
         name: 'office',
         message: 'Please enter their office number.'
       },
+      {
+        type: 'list',
+        message: 'Would you like to add another member to this team?',
+        name: 'choice',
+        choices: ['Add Intern', 'Add Engineer', 'No Thanks']
+      }
   ])
 .then((answers) => {
     const readmeContent = generateReadme(answers);
