@@ -32,9 +32,5 @@ inquirer
       }
   ])
 .then((answers) => {
-    const readmeContent = generateReadme(answers);
 
-    fs.writeFile('./utils/README.md', readmeContent, (err) => 
-    err ? console.error(err) : console.log('Success!')
-    );
 });
