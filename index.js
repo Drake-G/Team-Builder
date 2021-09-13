@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const { choices } = require('yargs');
 
 
 let starter = [
@@ -87,3 +88,41 @@ let engineer = [
         choices: ['Add Intern', 'Add Engineer', 'Finish Team']
       }
 ]
+
+function startPrompt() {
+   inquirer.prompt(starter).then((data) => {
+  if (data == "Add Intern") {
+      internQuestions();
+  } else if (data == "Add Engineer") {
+      engineerQuestions();
+  } else if (data == "Finish Team") {
+      finishTeam();
+  }
+   })
+}
+function internQuestions() {
+    inquirer.prompt(intern).then((data) => {
+        if (data == "Add Intern") {
+            internQuestions();
+        } else if (data == "Add Engineer") {
+            engineerQuestions();
+        } else if (data == "Finish Team") {
+            finishTeam();
+        }
+    })
+}
+function engineerQuestions() {
+    inquirer.prompt(engineer).then((data) => {
+        if (data == "Add Intern") {
+            internQuestions();
+        } else if (data == "Add Engineer") {
+            engineerQuestions();
+        } else if (data == "Finish Team") {
+            finishTeam();
+        }
+    })
+}
+function finishTeam() {
+    console.log('team built!')
+}
+startPrompt();
